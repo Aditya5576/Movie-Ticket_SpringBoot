@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CineHub - Home</title>
+<style>
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f0f0f0;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+nav {
+	background-color: #333;
+	color: #fff;
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+nav .logo img {
+	height: 99px;
+	width: 190px;
+	position: relative;
+	left: 30px;
+}
+
+nav .menu {
+	display: flex;
+}
+
+nav .menu ol {
+	list-style: none;
+	display: flex;
+	gap: 20px;
+	padding: 0;
+	margin: 0;
+}
+
+nav .menu li {
+	font-size: 16px;
+	font-weight: bold;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s, transform 0.2s;
+	border-radius: 5px;
+}
+
+nav .menu li:hover {
+	background-color: #555;
+	color: #fff;
+	transform: scale(1.1);
+}
+
+
+.header {
+	height: 503px;
+	width: 1010px;
+	position: relative;
+	left: 450px;
+	bottom: 642px;
+}
+
+.home {
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	padding-top: 40px;
+}
+
+.head1 {
+	color: white;
+	text-align: center;
+	font-weight: bolder;
+	font-size: 70px;
+	margin-top: 40px;
+}
+
+.head2 {
+	font-size: 50px;
+	font-weight: bolder;
+	color: white;
+	text-align: center;
+}
+
+.home-div {
+	height: 100vh;
+	width: 100%;
+	background-image: url("/img/Homebck.jpg");
+	background-size: cover;
+}
+
+button {
+	position: relative;
+	background-color: #EF5A6F;
+	font-weight: bolder;
+	height: 40px;
+	width: 120px;
+	left: 665px;
+	margin-top: 20px;
+	border-radius: 10px;
+	border: none;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+	transition: all;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-in-out;
+}
+
+button:hover {
+	scale: 1.2;
+	color: white;
+}
+</style>
+</head>
+<body>
+	<nav>
+		<div class="logo">
+			<img alt="CineHub Logo" src="/img/logo.png">
+		</div>
+
+		<div class="menu">
+			<ol>
+				<li><a href="/">HOME</a></li>
+				<li><a href="/customer/signup">REGESTATION</a></li>
+				<li><a href="/userlogin">LOGIN</a></li>
+			</ol>
+		</div>
+	</nav>
+
+
+
+	<div class="home-div">
+		<div class="home">
+
+			<h1 class="head1">Welcome to CineHub</h1>
+			<h2 class="head2">The Magic of Movies</h2>
+			<br> <br> <a href=""><button>Book now</button></a>
+
+		</div>
+	</div>
+
+</body>
+</html>

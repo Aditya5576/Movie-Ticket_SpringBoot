@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer Signup</title>
+<style type="text/css">
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f7f6;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.main {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url("/img/logsignin.jpg");
+	background-size: cover;
+}
+
+form {
+	background-color: #ffffff;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+	width: 100%;
+	max-width: 400px;
+}
+
+.contant input[type="text"], .contant input[type="number"], .contant input[type="password"],
+	.contant input[type="date"], .contant input[type="radio"], .contant button
+	{
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+.contant input[type="radio"] {
+	width: auto;
+	margin: 0 10px 0 0;
+}
+
+.contant span {
+	color: red;
+	font-size: 14px;
+	margin-bottom: 5px;
+	display: block;
+}
+
+button.signup-btn {
+	background-color: #28a745;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+button.signup-btn:hover {
+	background-color: #218838;
+}
+
+@media screen and (max-width: 480px) {
+	form {
+		padding: 20px;
+	}
+	.contant input[type="text"], .contant input[type="number"], .contant input[type="password"],
+		.contant input[type="date"], .contant button {
+		font-size: 14px;
+	}
+}
+
+.m {
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.8);
+}
+</style>
+</head>
+<body>
+	<div class="m">
+		<div class="main">
+			<form action="" method="post" th:object="${customer}">
+				<div class="contant">
+
+					<input th:field="*{name}" type="text" name="name"
+						placeholder="Enter your name"><br> <span
+						th:errors="*{name}"></span> <input th:field="*{mobile}"
+						type="number" name="mobile" placeholder="Enter your number"><br>
+					<span th:errors="*{mobile}"></span> <input th:field="*{email}"
+						type="text" name="email" placeholder="Enter your email"><br>
+					<span th:errors="*{email}"></span> <input th:field="*{password}"
+						type="password" name="password" placeholder="Enter your password"><br>
+					<span th:errors="*{password}"></span> <input
+						th:field="*{confirmpassword}" type="password"
+						name="confirmpassword" placeholder="Confirm your password"><br>
+					<span th:errors="*{confirmpassword}"></span> <label><input
+						type="radio" name="gender" value="male"> Male</label> <label><input
+						type="radio" name="gender" value="female"> Female</label><br>
+
+					<input th:field="*{dob}" type="date" name="dob"
+						placeholder="Date of Birth"><br> <span
+						th:errors="*{dob}"></span><br>
+
+					<button class="signup-btn">Register</button>
+					<br> <br> Register as Admin?<a href="/theatre/signup">
+						Click here!</a>
+
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
