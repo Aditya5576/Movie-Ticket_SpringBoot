@@ -10,4 +10,8 @@ public interface TheatreRepository extends JpaRepository<Theatre, Integer> {
 
 	boolean existsByMobile(long mobile);
 
+	Theatre findByMobile(long mobile);
+
+	public Theatre findByEmail(String email);
+
 }

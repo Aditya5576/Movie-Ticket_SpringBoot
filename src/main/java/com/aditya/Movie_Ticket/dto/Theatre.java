@@ -44,5 +44,8 @@ public class Theatre {
 
 	@NotEmpty(message = "* It is Compulsory Field")
 	private String licenceNumber;
+	private int otp;
+	private boolean verified;
+	private boolean approved;
 
 }

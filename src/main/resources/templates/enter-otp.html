@@ -72,12 +72,12 @@ button:hover {
 	<th:block th:insert="~{fragments/message.html}"></th:block>
 	<div class="container">
 		<h1>Enter OTP</h1>
-		<form action="/customer/verify-otp" method="post">
-			<input type="hidden" name="id" th:value="${session.id}"> <label
-				for="otp">Enter OTP:</label> <input type="text" id="otp" name="otp"
-				required>
-			<button type="submit">Submit</button>
-		</form>
+			<form th:action="'/'+${user}+'/verify-otp'" method="post">
+				<input type="hidden" name="id" th:value="${session.id}"> <label
+					for="otp">Enter OTP:</label> <input type="text" id="otp" name="otp"
+					required>
+				<button type="submit">Submit</button>
+			</form>
 	</div>
 </body>
 </html>
