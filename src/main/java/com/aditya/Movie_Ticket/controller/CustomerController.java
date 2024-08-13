@@ -43,7 +43,7 @@ public class CustomerController {
 	}
 
 	@PostMapping("/signup")
-	public String signup(@Valid Customer customer, BindingResult result) {
+	public String signup(@Valid Customer customer, BindingResult result, HttpSession session) {
 		if (!customer.getPassword().equals(customer.getConfirmpassword())) {
 			result.rejectValue("confirmpassword", "error.confirmpassword", "* Password Missmatch");
 		}
@@ -79,7 +79,7 @@ public class CustomerController {
 		if (customer.getOtp() == otp) {
 			customer.setVerified(true);
 			customerRepository.save(customer);
-			session.setAttribute("success", "Account Created Success");
+			session.setAttribute("success", "Account Created Success ");
 			return "redirect:/login";
 		} else {
 			session.setAttribute("failure", "Invalid OTP! Try Again");
