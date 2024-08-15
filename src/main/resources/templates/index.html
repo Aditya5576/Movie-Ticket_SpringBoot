@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>CineHub - Home</title>
@@ -66,7 +66,6 @@ nav .menu li:hover {
 	transform: scale(1.1);
 }
 
-
 .header {
 	height: 503px;
 	width: 1010px;
@@ -127,19 +126,9 @@ button:hover {
 </style>
 </head>
 <body>
-	<nav>
-		<div class="logo">
-			<img alt="CineHub Logo" src="/img/logo.png">
-		</div>
 
-		<div class="menu">
-			<ol>
-				<li><a href="/">HOME</a></li>
-				<li><a href="/customer/signup">REGESTATION</a></li>
-				<li><a href="/login">LOGIN</a></li>
-			</ol>
-		</div>
-	</nav>
+	<th:block th:insert="~{fragments/navbar.html}"></th:block>
+	<th:block th:insert="~{fragments/message.html}"></th:block>
 
 
 

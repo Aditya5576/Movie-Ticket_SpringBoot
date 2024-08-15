@@ -10,14 +10,67 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
 	rel="stylesheet">
 <link rel="stylesheet" href="/css/home.css">
+<style type="text/css">
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f7f6;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+h1 {
+	text-align: center;
+}
+
+form {
+	border: 2px solid red;
+	background-color: #ffffff;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+	width: 100%;
+	max-width: 400px;
+}
+
+button.login-btn {
+	background-color: #28a745;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	margin-left: 70px;
+}
+
+button.login-btn:hover {
+	background-color: #218838;
+}
+</style>
 </head>
 <body>
-	<th:block th:insert="~{fragments/message.html}"></th:block>
-	<h1>Login Page</h1>
-	<form action="/login" method="post">
-		Email / Mobile: <input type="text" name="emph"> Password: <input
-			type="password" name="password">
-		<button>Login</button>
-	</form>
+	<div class="outer">
+		<th:block th:insert="~{fragments/message.html}"></th:block>
+
+		<h1>Login Page</h1>
+		<br> <br> <br>
+		<form action="/login" method="post">
+			<input type="text" name="emph" placeholder="Enter Email/Phone-No">
+			<br> <br> <input type="password" name="password"
+				placeholder="Enter the password"><br> <br> <br>
+			<button class="login-btn">Login</button>
+		</form>
+	</div>
 </body>
 </html>

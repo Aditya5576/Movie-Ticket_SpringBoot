@@ -91,7 +91,9 @@ button.signup-btn:hover {
 					type="number" name="mobile" placeholder="Enter theatre number"><br>
 				<span th:errors="*{mobile}"></span> <input th:field="*{email}"
 					type="text" name="email" placeholder="Enter theatre email"><br>
-				<span th:errors="*{email}"></span> <input th:field="*{password}"
+				<span th:errors="*{email}"></span> <input th:field="*{address}"
+					type="text" name="address" placeholder="Enter theatre address"><br>
+				<span th:errors="*{address}"></span> <input th:field="*{password}"
 					type="password" name="password"
 					placeholder="Enter theatre password"><br> <span
 					th:errors="*{password}"></span> <input
@@ -103,9 +105,8 @@ button.signup-btn:hover {
 					th:errors="*{licenceNumber}"></span>
 
 				<button class="signup-btn">Register</button>
-				
-				 Register as a customer? <a href="/customer/signup">Click
-					here</a>
+
+				Register as a customer? <a href="/customer/signup">Click here</a>
 
 			</div>
 		</form>
