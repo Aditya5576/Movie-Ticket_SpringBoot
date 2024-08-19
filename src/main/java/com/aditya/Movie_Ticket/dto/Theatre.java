@@ -1,11 +1,17 @@
 package com.aditya.Movie_Ticket.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Transient;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
@@ -41,7 +47,7 @@ public class Theatre {
 	@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$", message = "* Enter 8 charecters with one lowercase, one uppercase, one number and one special charecter")
 	@Transient
 	private String confirmpassword;
-	
+
 	private String address;
 
 	@NotEmpty(message = "* It is Compulsory Field")
@@ -49,5 +55,8 @@ public class Theatre {
 	private int otp;
 	private boolean verified;
 	private boolean approved;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Screen> screens = new ArrayList<>();
 
 }

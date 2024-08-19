@@ -3,113 +3,118 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Theater - Register</title>
+<link rel="stylesheet" href="/css/navbar.css">
 <style type="text/css">
 body {
 	font-family: Arial, sans-serif;
-	background-color: #f4f7f6;
+	background-color: #f4f4f4;
 	margin: 0;
 	padding: 0;
+	background-image: url("/img/logsignin.jpg");
+	background-size: cover;
+}
+
+.m {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
+	min-height: 100vh;
 }
 
 .main {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	background-color: #ffffff;
+	padding: 40px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+	width: 400px;
 }
 
-form {
-	background-color: #ffffff;
-	padding: 30px;
-	border-radius: 10px;
-	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-	width: 100%;
-	max-width: 400px;
+.main h2 {
+	text-align: center;
+	margin-bottom: 30px;
+	color: #333;
 }
 
 .contant input[type="text"], .contant input[type="number"], .contant input[type="password"],
-	.contant input[type="date"], .contant input[type="radio"], .contant button
-	{
+	.contant input[type="email"] {
 	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ddd;
 	border-radius: 5px;
 	box-sizing: border-box;
 }
 
 .contant input[type="radio"] {
-	width: auto;
-	margin: 0 10px 0 0;
+	margin: 10px 5px;
 }
 
 .contant span {
 	color: red;
-	font-size: 14px;
-	margin-bottom: 5px;
-	display: block;
+	font-size: 0.9em;
 }
 
-button.signup-btn {
-	background-color: #28a745;
+.signup-btn {
+	width: 100%;
+	padding: 10px;
+	background-color: #4CAF50;
 	color: white;
-	padding: 12px 20px;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
 	font-size: 16px;
+	margin-top: 10px;
 }
 
-button.signup-btn:hover {
-	background-color: #218838;
+.signup-btn:hover {
+	background-color: #45a049;
 }
 
-@media screen and (max-width: 480px) {
-	form {
-		padding: 20px;
-	}
-	.contant input[type="text"], .contant input[type="number"], .contant input[type="password"],
-		.contant input[type="date"], .contant button {
-		font-size: 14px;
-	}
+.contant a {
+	color: #4CAF50;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.contant a:hover {
+	text-decoration: underline;
 }
 </style>
 </head>
 <body>
-	<div class="main">
-		<form action="/theatre/signup" method="post" th:object="${theatre}">
-			<div class="contant">
+	<th:block th:insert="~{fragments/navbar.html}"></th:block>
+	<div class="m">
 
-				<input th:field="*{name}" type="text" name="name"
-					placeholder="Enter theatre name"><br> <span
-					th:errors="*{name}"></span> <input th:field="*{mobile}"
-					type="number" name="mobile" placeholder="Enter theatre number"><br>
-				<span th:errors="*{mobile}"></span> <input th:field="*{email}"
-					type="text" name="email" placeholder="Enter theatre email"><br>
-				<span th:errors="*{email}"></span> <input th:field="*{address}"
-					type="text" name="address" placeholder="Enter theatre address"><br>
-				<span th:errors="*{address}"></span> <input th:field="*{password}"
-					type="password" name="password"
-					placeholder="Enter theatre password"><br> <span
-					th:errors="*{password}"></span> <input
-					th:field="*{confirmpassword}" type="password"
-					name="confirmpassword" placeholder="Confirm theatre password"><br>
-				<span th:errors="*{confirmpassword}"></span> <input
-					th:field="*{licenceNumber}" type="text" name="licenceNumber"
-					placeholder="Enter Licence Number"><br> <span
-					th:errors="*{licenceNumber}"></span>
+		<div class="main">
+			<form action="/theatre/signup" method="post" th:object="${theatre}">
+				<div class="contant">
 
-				<button class="signup-btn">Register</button>
+					<input th:field="*{name}" type="text" name="name"
+						placeholder="Enter theatre name"><br> <span
+						th:errors="*{name}"></span> <input th:field="*{mobile}"
+						type="number" name="mobile" placeholder="Enter theatre number"><br>
+					<span th:errors="*{mobile}"></span> <input th:field="*{email}"
+						type="text" name="email" placeholder="Enter theatre email"><br>
+					<span th:errors="*{email}"></span> <input th:field="*{address}"
+						type="text" name="address" placeholder="Enter theatre address"><br>
+					<span th:errors="*{address}"></span> <input th:field="*{password}"
+						type="password" name="password"
+						placeholder="Enter theatre password"><br> <span
+						th:errors="*{password}"></span> <input
+						th:field="*{confirmpassword}" type="password"
+						name="confirmpassword" placeholder="Confirm theatre password"><br>
+					<span th:errors="*{confirmpassword}"></span> <input
+						th:field="*{licenceNumber}" type="text" name="licenceNumber"
+						placeholder="Enter Licence Number"><br> <span
+						th:errors="*{licenceNumber}"></span>
 
-				Register as a customer? <a href="/customer/signup">Click here</a>
+					<button class="signup-btn">Register</button><br><br>
 
-			</div>
-		</form>
+					Register as a customer? <a href="/customer/signup">Click here</a>
+
+				</div>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

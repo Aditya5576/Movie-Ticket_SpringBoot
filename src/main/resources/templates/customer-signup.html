@@ -3,107 +3,96 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Customer Signup</title>
+<link rel="stylesheet" href="/css/navbar.css">
 <style type="text/css">
-* {
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
-	font-weight: bold;
-}
-
 body {
-	font-family: Arial, sans-serif;
-	background-color: #f4f7f6;
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-}
-
-.main {
-	height: 100vh;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-image: url("/img/logsignin.jpg");
-	background-size: cover;
-}
-
-form {
-	background-color: #ffffff;
-	padding: 30px;
-	border-radius: 10px;
-	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-	width: 100%;
-	max-width: 400px;
-}
-
-.contant input[type="text"], .contant input[type="number"], .contant input[type="password"],
-	.contant input[type="date"], .contant input[type="radio"], .contant button
-	{
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	box-sizing: border-box;
-}
-
-.contant input[type="radio"] {
-	width: auto;
-	margin: 0 10px 0 0;
-}
-
-.contant span {
-	color: red;
-	font-size: 14px;
-	margin-bottom: 5px;
-	display: block;
-}
-
-button.signup-btn {
-	background-color: #28a745;
-	color: white;
-	padding: 12px 20px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	font-size: 16px;
-}
-
-button.signup-btn:hover {
-	background-color: #218838;
-}
-
-@media screen and (max-width: 480px) {
-	form {
-		padding: 20px;
-	}
-	.contant input[type="text"], .contant input[type="number"], .contant input[type="password"],
-		.contant input[type="date"], .contant button {
-		font-size: 14px;
-	}
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    background-image: url("/img/logsignin.jpg");
+    background-size: cover;
 }
 
 .m {
-	height: 100%;
-	width: 100%;
-	background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
+
+.main {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+.main h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.contant input[type="text"],
+.contant input[type="number"],
+.contant input[type="password"],
+.contant input[type="date"],
+.contant input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.contant input[type="radio"] {
+    margin: 10px 5px;
+}
+
+.contant span {
+    color: red;
+    font-size: 0.9em;
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.signup-btn:hover {
+    background-color: #45a049;
+}
+
+.contant a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.contant a:hover {
+    text-decoration: underline;
+}
+
 </style>
 </head>
 <body>
-
+	<th:block th:insert="~{fragments/navbar.html}"></th:block>
 
 
 	<div class="m">
-	
+
 		<div class="main">
-		
+
 			<form action="" method="post" th:object="${customer}">
 				<div class="contant">
 
