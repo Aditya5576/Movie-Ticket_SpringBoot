@@ -4,16 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Enter OTP</title>
-<link rel="stylesheet" href="/css/message.css" >	
+<link rel="stylesheet" href="/css/message.css">
 <style>
 body {
-	font-family: 'Roboto', sans-serif;
-	background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 0;
+	background-image: url("/img/logsignin.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	margin: 0;
+	
+	
 }
 
 .container {
@@ -24,8 +31,7 @@ body {
 	text-align: center;
 	width: 350px;
 	animation: fadeIn 1s ease-in-out;
-    border: 2px solid red;
-    
+	border: 2px solid red;
 }
 
 h1 {
@@ -68,7 +74,6 @@ input[type="text"]:focus {
 	box-shadow: 0px 0px 12px rgba(102, 166, 255, 0.3);
 	outline: none;
 	background: #fff;
-    
 }
 
 button {
@@ -97,19 +102,28 @@ button:active {
 }
 
 @keyframes fadeIn {
-	from { opacity: 0; transform: scale(0.9); }
-	to { opacity: 1; transform: scale(1); }
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
 }
+
 </style>
 </head>
 <body>
+
 	<th:block th:insert="~{fragments/message.html}"></th:block>
+
 	<div class="container">
 		<h1>Enter OTP</h1>
 		<form th:action="'/'+${user}+'/verify-otp'" method="post">
-			<input type="hidden" name="id" th:value="${session.id}">
-			<label for="otp">Enter OTP:</label>
-			<input type="text" id="otp" name="otp" required>
+			<input type="hidden" name="id" th:value="${session.id}"> <label
+				for="otp">Enter OTP:</label> <input type="text" id="otp" name="otp"
+				required>
 			<button type="submit">Submit</button>
 		</form>
 	</div>

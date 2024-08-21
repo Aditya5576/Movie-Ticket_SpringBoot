@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>CineHub - Home</title>
-<link rel="stylesheet" href="/css/navbar.css" >
-<link rel="stylesheet" href="/css/message.css" >
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/message.css">
 <style>
 * {
 	box-sizing: border-box;
@@ -91,6 +91,34 @@ button:hover {
 			<h2 class="head2">The Magic of Movies</h2>
 			<br> <br> <a href=""><button>Book now</button></a>
 
+		</div>
+	</div>
+
+	<div class="container mt-5">
+		<h2 class="text-center mb-4">Featured Movies</h2>
+
+		<div id="movieCarousel" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-inner" th:each="movie:${movies}">
+				<div class="carousel-item active">
+					<img th:src="${movie.movie_poster}" class="d-block w-100"
+						alt="Movie 1">
+					<div class="carousel-caption d-none d-md-block">
+						<h5 class="movie-title" th:text="${movie.name}"></h5>
+						<p th:text="${movie.description}"></p>
+					</div>
+				</div>
+			</div>
+
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#movieCarousel" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#movieCarousel" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
 		</div>
 	</div>
 

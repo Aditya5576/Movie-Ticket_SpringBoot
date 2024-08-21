@@ -2,35 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Movie-Ticket - Add Screen</title>
-<!-- Link to the external CSS file for styling the signup form -->
-<style type="text/css">
-
-</style>
+<link rel="stylesheet" href="/css/signup.css">
 </head>
 <body>
-	<!-- Insert the navbar fragment (common navigation bar across pages) -->
 	<th:block th:insert="~{fragments/navbar.html}"></th:block>
-	<!-- Insert the message fragment (likely for displaying messages or alerts) -->
 	<th:block th:insert="~{fragments/message.html}"></th:block>
 
-	<!-- Main container for the form, centered on the page -->
 	<div class="container mt-5">
 		<div class="row justify-content-center">
 			<div class="col-md-8">
-				<!-- Form container with a title and form elements -->
 				<div class="form-container">
 					<h2 class="text-center mb-4">Add Screen</h2>
-
-					<!-- Form for adding a new screen, sends data to /theatre/add-screen -->
 					<form action="/theatre/add-screen" method="post">
-
-						<!-- Input for Screen Name -->
 						<div class="mb-3">
-							<label class="form-label">Screen Name</label> <input
+							<label for="name" class="form-label">Screen Name</label> <input
 								type="text" class="form-control" id="name" name="name">
 						</div>
-
-						<!-- Inputs for Rows and Columns (Screen Size) -->
 						<div class="mb-3">
 							<label class="form-label">Size</label>
 							<div class="row">
@@ -44,8 +31,6 @@
 								</div>
 							</div>
 						</div>
-
-						<!-- Submit button for the form -->
 						<div class="d-grid">
 							<button type="submit" class="btn btn-primary">Add Screen</button>
 						</div>
@@ -54,5 +39,7 @@
 			</div>
 		</div>
 	</div>
+
+	<th:block th:insert="~{fragments/footer.html}"></th:block>
 </body>
 </html>

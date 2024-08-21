@@ -13,13 +13,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.aditya.Movie_Ticket.dto.Movie;
 import com.aditya.Movie_Ticket.dto.Screen;
 import com.aditya.Movie_Ticket.dto.Seat;
+import com.aditya.Movie_Ticket.dto.Show;
 import com.aditya.Movie_Ticket.dto.Theatre;
 import com.aditya.Movie_Ticket.helper.AES;
 import com.aditya.Movie_Ticket.helper.EmailSendingHelper;
 import com.aditya.Movie_Ticket.repository.CustomerRepository;
+import com.aditya.Movie_Ticket.repository.MovieRepository;
 import com.aditya.Movie_Ticket.repository.ScreenRepository;
+import com.aditya.Movie_Ticket.repository.ShowRepository;
 import com.aditya.Movie_Ticket.repository.TheatreRepository;
 
 import jakarta.servlet.http.HttpSession;
@@ -40,9 +44,15 @@ public class TheatreController {
 
 	@Autowired
 	EmailSendingHelper emailSendingHelper;
-	
+
 	@Autowired
 	ScreenRepository screenRepository;
+
+	@Autowired
+	MovieRepository movieRepository;
+
+	@Autowired
+	ShowRepository showRepository;
 
 	@GetMapping("/signup")
 	public String loadSignup(ModelMap map) {
@@ -70,7 +80,7 @@ public class TheatreController {
 			theatre.setPassword(AES.encrypt(theatre.getPassword(), "123"));
 			theatre.setOtp(new Random().nextInt(100000, 1000000));
 			System.out.println("OTP - > " + theatre.getOtp());
-			//emailSendingHelper.sendMailToTheatre(theatre);
+			// emailSendingHelper.sendMailToTheatre(theatre);
 			theatreRepository.save(theatre);
 			session.setAttribute("success", "Otp Sent Success!!!");
 			session.setAttribute("id", theatre.getId());
@@ -133,6 +143,68 @@ public class TheatreController {
 				theatreRepository.save(theatre);
 				session.setAttribute("success", "Screen and Seats Added Success");
 				return "redirect:/";
+			}
+		} else {
+			session.setAttribute("failure", "Invalid Session, Login Again");
+			return "redirect:/login";
+		}
+	}
+
+	@GetMapping("/add-show")
+	public String addShow(HttpSession session, ModelMap map) {
+		Theatre theatre = (Theatre) session.getAttribute("theatre");
+		if (theatre != null) {
+			List<Screen> screens = theatre.getScreens();
+			List<Movie> movies = movieRepository.findAll();
+
+			if (screens.isEmpty()) {
+				session.setAttribute("failure", "No Screens Available for Adding Show");
+				return "redirect:/";
+			}
+			if (movies.isEmpty()) {
+				session.setAttribute("failure", "No Movies Available for Adding Show");
+				return "redirect:/";
+			}
+
+			map.put("screens", screens);
+			map.put("movies", movies);
+			return "add-show.html";
+
+		} else {
+			session.setAttribute("failure", "Invalid Session, Login Again");
+			return "redirect:/login";
+		}
+	}
+
+	@PostMapping("/add-show")
+	public String addShow(HttpSession session, ModelMap map, Show show) {
+		Theatre theatre = (Theatre) session.getAttribute("theatre");
+		if (theatre != null) {
+			show.setMovie(movieRepository.findById(show.getMovie().getId()).orElseThrow());
+			show.setScreen(screenRepository.findById(show.getScreen().getId()).orElseThrow());
+
+			showRepository.save(show);
+
+			session.setAttribute("success", "Show Added Success");
+			return "redirect:/";
+		} else {
+			session.setAttribute("failure", "Invalid Session, Login Again");
+			return "redirect:/login";
+		}
+	}
+
+	@GetMapping("/manage-show")
+	public String getShows(HttpSession session, ModelMap map) {
+		Theatre theatre = (Theatre) session.getAttribute("theatre");
+		if (theatre != null) {
+			List<Screen> screens = theatre.getScreens();
+			List<Show> shows = showRepository.findByScreenIn(screens);
+			if (shows.isEmpty()) {
+				session.setAttribute("failure", "No Shows Added Yet");
+				return "redirect:/";
+			} else {
+				map.put("shows", shows);
+				return "manage-show.html";
 			}
 		} else {
 			session.setAttribute("failure", "Invalid Session, Login Again");

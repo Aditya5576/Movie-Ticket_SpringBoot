@@ -14,23 +14,24 @@
 			</th:block>
 
 			<th:block th:if="${session.admin}">
-				<li><a href="/admin/approve-theatre">Approve Theatre</a></li>
-				<li><a href="/admin/add-movie">Add Movie</a></li>
+				<li><a href="/admin/approve-theatre">APPROVE THEATRE</a></li>
+				<li><a href="/admin/add-movie">ADD MOVIES</a></li>
 			</th:block>
 
 			<th:block th:if="${session.customer}">
-				<li><a href="/movies">Movies</a></li>
-				<li><a href="/customer/previous-booking">Previous Bookings</a></li>
+				<li><a href="/movies">MOVIES</a></li>
+				<li><a href="/customer/previous-booking">PREVIOUS BOOKINGS</a></li>
 			</th:block>
 
 			<th:block th:if="${session.theatre}">
-				<li><a href="/theatre/add-movie">Add Movie</a></li>
-				<li><a href="/theatre/dashboard-movie">Movie Dashboard</a></li>
+				<li><a href="/theatre/add-screen">ADD SCREEN</a></li>
+				<li><a href="/theatre/add-show">ADD SHOW</a></li>
+				<li><a href="/theatre/manage-show">MANAGE SHOW</a></li>
 			</th:block>
 
 			<th:block
 				th:if="${session.admin!=null || session.customer!=null || session.theatre!=null}">
-				<li><a href="/logout">Logout</a></li>
+				<li><a href="/logout">LOGOUT</a></li>
 			</th:block>
 		</ol>
 	</div>
