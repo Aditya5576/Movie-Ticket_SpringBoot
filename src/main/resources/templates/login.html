@@ -14,106 +14,98 @@
 <link rel="stylesheet" href="/css/home.css">
 <style type="text/css">
 * {
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
-	font-weight: bold;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
 }
 
 body {
-	font-family: Arial, sans-serif;
-	background-color: #f4f4f4;
-	margin: 0;
-	padding: 0;
-	background-image: url("/img/logsignin.jpg");
-	background-size: cover;
-	background-position: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light background for the page */
 }
 
-
 h1 {
-	text-align: center;
-	color: #ff3b3f;
-	font-size: 36px;
-	margin-bottom: 30px;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: #ff3b3f;
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .outer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    background: #ffffff; /* White background for the form container */
+    padding: 20px;
 }
 
 form {
-	border: 2px solid red;
-	background-color: #ffffff;
-	padding: 30px;
-	border-radius: 10px;
-	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-	width: 100%;
-	max-width: 400px;
-	text-align: center;
-	animation: fadeIn 1s ease-in-out;
+    border: 2px solid #ff3b3f; /* Use matching color for border */
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
 }
 
 input[type="text"], input[type="password"] {
-	width: 100%;
-	padding: 12px;
-	margin-bottom: 25px;
-	border: 1px solid #555;
-	border-radius: 8px;
-	font-size: 16px;
-	background: #f9f9f9;
-	color: #333;
-	transition: border-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #f9f9f9;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input[type="text"]:focus, input[type="password"]:focus {
-	border-color: #ff3b3f;
-	box-shadow: 0px 0px 8px rgba(255, 59, 63, 0.5);
-	outline: none;
-	background: #fff;
+    border-color: #ff3b3f;
+    box-shadow: 0px 0px 8px rgba(255, 59, 63, 0.5);
+    outline: none;
+    background: #fff;
 }
 
 button.login-btn {
-	background-color: #ff3b3f;
-	color: white;
-	padding: 12px 20px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	font-size: 18px;
-	width: 100%;
-	transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    background-color: #ff3b3f;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 button.login-btn:hover {
-	background-color: #e63236;
-	transform: translateY(-2px);
-	box-shadow: 0 8px 15px rgba(230, 50, 54, 0.3);
+    background-color: #e63236;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(230, 50, 54, 0.3);
 }
 
 button.login-btn:active {
-	transform: translateY(0);
-	box-shadow: none;
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 @keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: scale(0.9);
-	}
-	to {
-		opacity: 1;
-		transform: scale(1);
-	}
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 </style>
