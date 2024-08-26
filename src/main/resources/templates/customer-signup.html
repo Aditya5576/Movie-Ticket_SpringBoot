@@ -6,83 +6,91 @@
 <link rel="stylesheet" href="/css/navbar.css">
 <style type="text/css">
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    background-image: url("/img/logsignin.jpg");
-    background-size: cover;
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 0;
 }
 
 .m {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-image: url("/img/loginimage.jpg");
+	background-size: cover;
+}
+
+.m2 {
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	padding-top: 40px;
 }
 
 .main {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    width: 400px;
+	background-color: #ffffff;
+	padding: 40px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+	width: 400px;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	padding-top: 40px;
+	background-color: #ffffff;
 }
 
 .main h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
+	text-align: center;
+	margin-bottom: 30px;
+	color: #333;
 }
 
-.contant input[type="text"],
-.contant input[type="number"],
-.contant input[type="password"],
-.contant input[type="date"],
-.contant input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
+.contant input[type="text"], .contant input[type="number"], .contant input[type="password"],
+	.contant input[type="date"], .contant input[type="email"] {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	box-sizing: border-box;
 }
 
 .contant input[type="radio"] {
-    margin: 10px 5px;
+	margin: 10px 5px;
 }
 
 .contant span {
-    color: red;
-    font-size: 0.9em;
+	color: red;
+	font-size: 0.9em;
 }
 
 .signup-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
+	width: 100%;
+	padding: 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	margin-top: 10px;
 }
 
 .signup-btn:hover {
-    background-color: #45a049;
+	background-color: #45a049;
 }
 
 .contant a {
-    color: #4CAF50;
-    text-decoration: none;
-    font-size: 14px;
+	color: #4CAF50;
+	text-decoration: none;
+	font-size: 14px;
 }
 
 .contant a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
-
 </style>
 </head>
 <body>
@@ -90,37 +98,39 @@ body {
 
 
 	<div class="m">
+		<div class="">
 
-		<div class="main">
+			<div class="main">
 
-			<form action="" method="post" th:object="${customer}">
-				<div class="contant">
+				<form action="" method="post" th:object="${customer}">
+					<div class="contant">
 
-					<input th:field="*{name}" type="text" name="name"
-						placeholder="Enter your name"><br> <span
-						th:errors="*{name}"></span> <input th:field="*{mobile}"
-						type="number" name="mobile" placeholder="Enter your number"><br>
-					<span th:errors="*{mobile}"></span> <input th:field="*{email}"
-						type="text" name="email" placeholder="Enter your email"><br>
-					<span th:errors="*{email}"></span> <input th:field="*{password}"
-						type="password" name="password" placeholder="Enter your password"><br>
-					<span th:errors="*{password}"></span> <input
-						th:field="*{confirmpassword}" type="password"
-						name="confirmpassword" placeholder="Confirm your password"><br>
-					<span th:errors="*{confirmpassword}"></span> <label><input
-						type="radio" name="gender" value="male"> Male</label> <label><input
-						type="radio" name="gender" value="female"> Female</label><br>
+						<input th:field="*{name}" type="text" name="name"
+							placeholder="Enter your name"><br> <span
+							th:errors="*{name}"></span> <input th:field="*{mobile}"
+							type="number" name="mobile" placeholder="Enter your number"><br>
+						<span th:errors="*{mobile}"></span> <input th:field="*{email}"
+							type="text" name="email" placeholder="Enter your email"><br>
+						<span th:errors="*{email}"></span> <input th:field="*{password}"
+							type="password" name="password" placeholder="Enter your password"><br>
+						<span th:errors="*{password}"></span> <input
+							th:field="*{confirmpassword}" type="password"
+							name="confirmpassword" placeholder="Confirm your password"><br>
+						<span th:errors="*{confirmpassword}"></span> <label><input
+							type="radio" name="gender" value="male"> Male</label> <label><input
+							type="radio" name="gender" value="female"> Female</label><br>
 
-					<input th:field="*{dob}" type="date" name="dob"
-						placeholder="Date of Birth"><br> <span
-						th:errors="*{dob}"></span><br>
+						<input th:field="*{dob}" type="date" name="dob"
+							placeholder="Date of Birth"><br> <span
+							th:errors="*{dob}"></span><br>
 
-					<button class="signup-btn">Register</button>
-					<br> <br> Register as Theatre?<a href="/theatre/signup">
-						Click here!</a>
+						<button class="signup-btn">Register</button>
+						<br> <br> Register as Theatre?<a href="/theatre/signup">
+							Click here!</a>
 
-				</div>
-			</form>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </body>

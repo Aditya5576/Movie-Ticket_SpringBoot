@@ -150,6 +150,8 @@ nav {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 77, 77, 0.5);
     border: none;
     transition: box-shadow 0.3s ease;
+    position: sticky;
+    top: 0;
 }
 
 nav:hover {
